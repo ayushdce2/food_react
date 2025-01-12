@@ -29,10 +29,6 @@
   padding: 5px;
 }
 
-.search {
-  padding: 10px;
-}
-
 .res-logo {
   width: 100%;
   height: auto;
@@ -53,5 +49,11 @@
   background-color: #ddd;
   width: 200px;
   height: 200px;
+}
+
+.filter {
+  gap: 10px;
+  margin: .6rem 0;
+  display: flex;
 }
 /*# sourceMappingURL=index.c41b5a0e.css.map */

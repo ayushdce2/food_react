@@ -18899,11 +18899,13 @@ var _s = $RefreshSig$();
 const Body = ()=>{
     _s();
     const [listOfRestaurants, setListOfRestaurants] = (0, _react.useState)();
+    const [filteredRestaurants, setFilteredRestaurants] = (0, _react.useState)();
+    const [searchText, setSearchText] = (0, _react.useState)("");
     const Topratedrestaurants = ()=>{
         const filteredList = listOfRestaurants.filter((allData)=>{
             return allData.info.avgRating > 4.3;
         });
-        setListOfRestaurants(filteredList);
+        setFilteredRestaurants(filteredList);
     };
     (0, _react.useEffect)(()=>{
         fetchData();
@@ -18911,12 +18913,13 @@ const Body = ()=>{
     const fetchData = async ()=>{
         const data = await fetch("https://cors-anywhere.herokuapp.com/https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.632986&lng=77.219374&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
-        console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+        // console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
         setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
     return listOfRestaurants == undefined ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/Body.js",
-        lineNumber: 28,
+        lineNumber: 32,
         columnNumber: 46
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -18924,40 +18927,79 @@ const Body = ()=>{
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     className: "filter",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        className: "filter-btn",
-                        onClick: Topratedrestaurants,
-                        children: "Top rated Restaurants"
-                    }, void 0, false, {
-                        fileName: "src/components/Body.js",
-                        lineNumber: 33,
-                        columnNumber: 21
-                    }, undefined)
-                }, void 0, false, {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            className: "filter-btn",
+                            onClick: Topratedrestaurants,
+                            children: "Top rated Restaurants"
+                        }, void 0, false, {
+                            fileName: "src/components/Body.js",
+                            lineNumber: 39,
+                            columnNumber: 21
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "search",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "search-box",
+                                    placeholder: "Search for restaurants",
+                                    value: searchText,
+                                    onChange: (e)=>{
+                                        setSearchText(e.target.value);
+                                    }
+                                }, void 0, false, {
+                                    fileName: "src/components/Body.js",
+                                    lineNumber: 43,
+                                    columnNumber: 25
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>{
+                                        console.log(searchText);
+                                        const filteredList = listOfRestaurants.filter((allData)=>{
+                                            return allData.info.cuisines.toString().toLowerCase().includes(searchText.toLowerCase());
+                                        });
+                                        console.log(filteredList);
+                                        setFilteredRestaurants(filteredList);
+                                    },
+                                    children: "Search"
+                                }, void 0, false, {
+                                    fileName: "src/components/Body.js",
+                                    lineNumber: 44,
+                                    columnNumber: 25
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/Body.js",
+                            lineNumber: 41,
+                            columnNumber: 21
+                        }, undefined)
+                    ]
+                }, void 0, true, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 32,
+                    lineNumber: 38,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     className: "res-container",
-                    children: listOfRestaurants?.map((res, index)=>{
+                    children: filteredRestaurants?.map((res, index)=>{
                         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
                                 resData: res
                             }, void 0, false, {
                                 fileName: "src/components/Body.js",
-                                lineNumber: 42,
+                                lineNumber: 67,
                                 columnNumber: 25
                             }, undefined)
                         }, index, false, {
                             fileName: "src/components/Body.js",
-                            lineNumber: 41,
+                            lineNumber: 66,
                             columnNumber: 29
                         }, undefined);
                     })
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 35,
+                    lineNumber: 60,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -18968,23 +19010,23 @@ const Body = ()=>{
                         children: "CLICK to start API"
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 52,
+                        lineNumber: 77,
                         columnNumber: 21
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 51,
+                    lineNumber: 76,
                     columnNumber: 17
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/Body.js",
-            lineNumber: 30,
+            lineNumber: 34,
             columnNumber: 13
         }, undefined)
     }, void 0, false);
 };
-_s(Body, "ZHWXYzEOj1f/mQBAPldPVixHo0o=");
+_s(Body, "MEHxGst+6au3KndrqTH6xrgo84I=");
 _c = Body;
 exports.default = Body;
 var _c;
@@ -19010,7 +19052,7 @@ const styleCard = {
     backgroundColor: "grey"
 };
 const RestaurantCard = (props)=>{
-    console.log(props.resData);
+    // console.log(props.resData);
     const { cuisines, name, avgRating, slaString, costForTwo, cloudinaryImageId } = props.resData.info;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "res-card",
@@ -19141,6 +19183,6 @@ $RefreshReg$(_c, "Shimmer");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../index.css":"giGSC"}],"giGSC":[function() {},{}]},["aQL8O","7T53S","2kQhy"], "2kQhy", "parcelRequire94c2")
+},{"react/jsx-dev-runtime":"iTorj","../../index.css":"giGSC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"giGSC":[function() {},{}]},["aQL8O","7T53S","2kQhy"], "2kQhy", "parcelRequire94c2")
 
 //# sourceMappingURL=index.7271efb6.js.map
