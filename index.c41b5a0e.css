@@ -43,4 +43,15 @@
   gap: 5px;
   display: flex;
 }
+
+.shimmer {
+  gap: 10px;
+  display: flex;
+}
+
+.shimmer_card {
+  background-color: #ddd;
+  width: 200px;
+  height: 200px;
+}
 /*# sourceMappingURL=index.c41b5a0e.css.map */
