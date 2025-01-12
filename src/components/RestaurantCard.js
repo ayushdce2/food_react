@@ -3,7 +3,7 @@ const styleCard={
     backgroundColor:"grey"
 }
 const RestaurantCard = (props)=>{
-    console.log(props.resData)
+    console.log(props.resData);
     const {cuisines, name, avgRating, slaString, costForTwo,cloudinaryImageId} = props.resData.info;
     return(
         <div className="res-card" style={styleCard}>
