@@ -19,7 +19,7 @@ body{
     font-family: ralewayThin;
 }
 .body{
-    padding: 0px 5px;
+    padding: 0px 5px 5px 5px;
 }
   .header{
     display: flex;
@@ -147,7 +147,7 @@ body{
     text-shadow: 0 0 black;
 }
 .shimmer{
-    
+    padding: 10px;
     display: flex;
     gap: 10px;
 }
@@ -156,7 +156,13 @@ body{
     width: 200px;
     background-color: #ddd;
     height: 200px;
+    animation: shimmer_anim 3s linear infinite;
 }
+@keyframes shimmer_anim {
+    0%   {background-color:#eee; }
+    50%  {background-color:#bbbbbb; }
+    100%  {background-color:#eee; }
+  }
 .filter{
     display: flex;
     margin: 0.6rem 0px;
@@ -179,4 +185,17 @@ body{
 .all_filter_btn{
     display: flex;
     gap: 10px;
+}
+
+.footer{
+    background-color: #F6C794;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto;
+}
+.app{
+    display: flex;
+    flex-direction: column;
+    /* align-items: revert; */
+    min-height: 100vh;
 }

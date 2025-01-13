@@ -12,7 +12,7 @@ const Body =()=>{
     const Topratedrestaurants =()=>{
 
         const filteredList = listOfRestaurants.filter((allData)=>{
-            return allData.info.avgRating > 4.3;
+            return allData.info.avgRating > 4.4;
         });
         setFilteredRestaurants(filteredList);
         
@@ -37,7 +37,7 @@ const Body =()=>{
                 
                 <div className="filter">
                     <div className="all_filter_btn">
-                        <button className="filter-btn">All Restaurants</button>
+                        <button className="filter-btn" onClick={()=>{ setFilteredRestaurants(listOfRestaurants); }}>All Restaurants</button>
 
                         <button className="filter-btn" onClick={Topratedrestaurants}>Top rated Restaurants</button>
                     

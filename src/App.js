@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "../index.css";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Body from "./components/Body";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -14,6 +15,7 @@ const AppLayout = ()=>{
             <div className="app">
                 <Header/>
                 <Outlet/>
+                <Footer/>
             </div>
         </>
     )
