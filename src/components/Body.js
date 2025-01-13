@@ -73,9 +73,7 @@ const Body =()=>{
                 
                 </div>
                 
-                <div className="">
-                    <a href="https://cors-anywhere.herokuapp.com/corsdemo" target="_blank">CLICK to start API</a>
-                </div>
+                
 
             </div>
         </>
