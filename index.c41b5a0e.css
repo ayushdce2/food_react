@@ -41,15 +41,23 @@ body {
 .nav-items > ul {
   align-items: center;
   gap: 2rem;
-  font-size: 1.4rem;
+  font-size: 1rem;
+  font-weight: bold;
   list-style-type: none;
   display: flex;
 }
 
 .nav-items > ul > li > a {
   color: #6a80b9;
+  padding: 1rem;
   font-family: ralewayBold;
   text-decoration: none;
+}
+
+.nav-items > ul > li:first-child > a {
+  color: #fff;
+  background-color: #6a80b9;
+  border-radius: 5px;
 }
 
 .nav-items > ul > button {
@@ -59,7 +67,7 @@ body {
   border: 1px solid #c2c1c1;
   border-radius: 3px;
   width: 4rem;
-  height: 2rem;
+  height: 3rem;
 }
 
 .filter-btn {
@@ -205,5 +213,9 @@ body {
   flex-direction: column;
   min-height: 100vh;
   display: flex;
+}
+
+a {
+  text-decoration: none;
 }
 /*# sourceMappingURL=index.c41b5a0e.css.map */
