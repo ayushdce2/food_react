@@ -19,7 +19,7 @@ body {
 }
 
 .body {
-  padding: 0 5px;
+  padding: 0 5px 5px;
 }
 
 .header {
@@ -142,6 +142,7 @@ body {
 
 .shimmer {
   gap: 10px;
+  padding: 10px;
   display: flex;
 }
 
@@ -149,6 +150,21 @@ body {
   background-color: #ddd;
   width: 200px;
   height: 200px;
+  animation: 3s linear infinite shimmer_anim;
+}
+
+@keyframes shimmer_anim {
+  0% {
+    background-color: #eee;
+  }
+
+  50% {
+    background-color: #bbb;
+  }
+
+  100% {
+    background-color: #eee;
+  }
 }
 
 .filter {
@@ -175,6 +191,19 @@ body {
 
 .all_filter_btn {
   gap: 10px;
+  display: flex;
+}
+
+.footer {
+  text-align: center;
+  background-color: #f6c794;
+  margin-top: auto;
+  padding: 10px;
+}
+
+.app {
+  flex-direction: column;
+  min-height: 100vh;
   display: flex;
 }
 /*# sourceMappingURL=index.c41b5a0e.css.map */
