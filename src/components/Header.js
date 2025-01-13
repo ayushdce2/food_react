@@ -1,4 +1,5 @@
-import {LOGO_URL} from "../utils/Constants";
+// import {LOGO_URL} from "../utils/Constants";
+import LOGO_URL from "../images/logo.png";
 import {useState} from "react";
 import { NavLink } from "react-router";
 
@@ -10,12 +11,12 @@ const Header = ()=>{
         <>
             <div className="header">
                 <div className="logo-container">
-                    <img className="logo" src={LOGO_URL}/> 
+                    <img className="logo" src={LOGO_URL} /> 
 
                 </div>
                 <div className="nav-items">
                     <ul>
-                        <li><NavLink  to="/food_react">HOME</NavLink ></li>
+                        <li><NavLink  to="/food_react">Home</NavLink ></li>
                         <li><NavLink  to="/about">About Us</NavLink ></li>
                         <li><NavLink  to="/contact">Contact Us</NavLink></li>
                         <li><NavLink  to="/cart">Cart</NavLink ></li>

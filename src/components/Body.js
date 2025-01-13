@@ -36,11 +36,17 @@ const Body =()=>{
                 
                 
                 <div className="filter">
-                    <button className="filter-btn" onClick={Topratedrestaurants}>Top rated Restaurants</button>
+                    <div className="all_filter_btn">
+                        <button className="filter-btn">All Restaurants</button>
+
+                        <button className="filter-btn" onClick={Topratedrestaurants}>Top rated Restaurants</button>
+                    
+                        
+                    </div>
 
                     <div className="search">
                     
-                        <input type="text" className="search-box" placeholder="Search for restaurants" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}/>
+                        <input type="text" className="search-box" placeholder="Search for cuisines . . . ." value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}/>
                         <button onClick={()=>{
                             console.log(searchText);
                             const filteredList = listOfRestaurants.filter((allData)=>{
@@ -63,9 +69,9 @@ const Body =()=>{
                         
                         
                         return (
-                            <div key={index}>
-                        <RestaurantCard resData={res} />
-                        </div>)
+                            
+                        <RestaurantCard resData={res} key={index}/>
+                        )
                         
                     })
                 }
