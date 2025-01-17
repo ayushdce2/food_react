@@ -1,33 +1,38 @@
-import {useState, useEffect } from "react";
+// import {useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import {useParams} from "react-router";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = ()=>{
     
-    const [resInfo, setResInfo]=useState(0);
+    // const [resInfo, setResInfo]=useState(0);
 
     const {resId} = useParams();
-    console.log(resId);
-
-    useEffect(()=>{
-        fetchMenu();
-    },[]);
+ 
+    const resInfo = useRestaurantMenu(resId);
     
-    const fetchMenu = async ()=>{
-
-        const data = await fetch("https://cors-anywhere.herokuapp.com/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.632986&lng=77.219374&restaurantId="+resId);
-        const json = await data.json();
-        // console.log(json,"<----------");
-        setResInfo(json);
+    if((resInfo === 0 || resInfo === null || resInfo === undefined )){
+        return <Shimmer/>;
     }
 
+ 
 
-    if((resInfo===0)){
-            return <Shimmer/>;
-    }
-console.log(   resInfo?.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards);
-const {name, avgRating, cloudinaryImageId, costForTwoMessage, cuisines} = resInfo?.data?.cards[2]?.card?.card?.info;
-const {itemCards} = resInfo?.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card;
+    // useEffect(()=>{
+    //     fetchMenu();
+    // },[]);
+    
+    // const fetchMenu = async ()=>{
+
+    //     const data = await fetch("https://cors-anywhere.herokuapp.com/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.632986&lng=77.219374&restaurantId="+resId);
+    //     const json = await data.json();
+    //     // console.log(json,"<----------");
+    //     setResInfo(json);
+    // }
+
+
+// console.log(  resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards);
+const {name, avgRating, cloudinaryImageId, costForTwoMessage, cuisines} = resInfo?.cards[2]?.card?.card?.info;
+const {itemCards} = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
     return(
         <>
             <div className="rest_menu">
