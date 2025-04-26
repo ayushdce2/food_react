@@ -28085,20 +28085,8 @@ const Body = ()=>{
     };
     const onlineStatus = (0, _useOnlineStatusDefault.default)();
     console.log(onlineStatus, "onlineStatus1");
-    if (onlineStatus == false) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-        children: "You have gone OFFLINE"
-    }, void 0, false, {
-        fileName: "src/components/Body.js",
-        lineNumber: 37,
-        columnNumber: 42
-    }, undefined);
-    if (onlineStatus == true) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-        children: "You have gone ONLINE"
-    }, void 0, false, {
-        fileName: "src/components/Body.js",
-        lineNumber: 38,
-        columnNumber: 41
-    }, undefined);
+    // if(onlineStatus == false) return <h1>You have gone OFFLINE</h1>
+    // if(onlineStatus == true) return <h1>You have gone ONLINE</h1>
     return listOfRestaurants == undefined ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/Body.js",
         lineNumber: 40,
