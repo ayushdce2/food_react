@@ -49,7 +49,7 @@ body {
 
 .nav-items > ul > li > a {
   color: #6a80b9;
-  padding: 1rem;
+  padding: 1rem 2rem;
   font-family: ralewayBold;
   text-decoration: none;
 }
@@ -85,6 +85,7 @@ body {
   border: 1px solid #c2c1c1;
   border-radius: 3px;
   height: 100%;
+  padding-left: .5rem;
 }
 
 .search button {
@@ -118,8 +119,10 @@ body {
 .res_name {
   color: #155e95;
   letter-spacing: 1px;
+  text-shadow: 0 0 #000;
+  height: 2rem;
   margin-top: .8rem;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-weight: bold;
 }
 
@@ -127,18 +130,23 @@ body {
   color: #505050;
   letter-spacing: 1px;
   text-shadow: 0 0 #000;
-  font-weight: bold;
+  font-size: .8rem;
 }
 
 .res_rating {
   color: #fff6b3;
   letter-spacing: 1px;
-  text-shadow: 0 0 #000;
+  text-shadow: 0 0 #fff;
   background-color: #155e95;
   border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
   padding: 5px;
   font-size: 12px;
   font-weight: bold;
+  display: flex;
 }
 
 .res_cost {
